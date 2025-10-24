@@ -1,4 +1,7 @@
 import { Movie, List, MovieSimplified } from "../../entities/interfaces/movie";
+import { MovieDetail, MovieDetailSimplified } from "../../entities/interfaces/movie.detail";
+
+const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 export const mapMovieList = (data: List): List => {
     return {
@@ -33,10 +36,20 @@ export const mapToSimplifiedMovie = (movie: Movie): MovieSimplified => {
         id: movie.id,
         title: movie.title,
         release_date: new Date(movie.release_date),
-        poster_path: movie.poster_path
+        poster_path: `${IMAGE_BASE_URL}${movie.poster_path}`
     };
 };
 
 export const mapToSimplifiedMovieList = (data: List): MovieSimplified[] => {
     return data.results.map(mapToSimplifiedMovie);
+};
+
+export const mapToSimplifiedMovieDetail = (data: MovieDetail): MovieDetailSimplified => {
+    return {
+        id: data.id,
+        title: data.title,
+        poster_path: `${IMAGE_BASE_URL}${data.poster_path}`,
+        vote_average: data.vote_average,
+        overview: data.overview
+    };
 };

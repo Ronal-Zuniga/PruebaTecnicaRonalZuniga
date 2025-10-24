@@ -1,5 +1,5 @@
 import { NavigationProp, useNavigation } from "@react-navigation/native";
-import { View, Text, FlatList, ActivityIndicator, StyleSheet } from "react-native"
+import { Text, FlatList, ActivityIndicator, StyleSheet } from "react-native"
 import { RootStackParams } from "../../entities/types/navigationParams";
 import { useEffect, useState } from "react";
 import { MovieSimplified } from "../../entities/interfaces/movie";
@@ -8,7 +8,7 @@ import { MovieComponent } from "../components/molecules/MovieComponent";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const HomeScreen = () => {
-    
+
     const navigation = useNavigation<NavigationProp<RootStackParams>>();
     const [movies, setMovies] = useState<MovieSimplified[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -50,6 +50,7 @@ export const HomeScreen = () => {
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
+                style={styles.listContainer}
                 data={movies}
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <MovieComponent movie={item} />}
@@ -71,4 +72,7 @@ const styles = StyleSheet.create({
         color: "red",
         fontSize: 16,
     },
+    listContainer:{
+        flex: 1
+    }
 });

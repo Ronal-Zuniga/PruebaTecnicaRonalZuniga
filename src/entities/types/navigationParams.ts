@@ -1,4 +1,4 @@
 export type RootStackParams = {
     Home: undefined;
-    Detail: undefined;
+    Detail: { movieId: number };
 }

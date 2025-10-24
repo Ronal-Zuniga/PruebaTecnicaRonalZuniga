@@ -22,9 +22,9 @@ export interface Movie {
     vote_count: number;
 }
 
-export interface MovieSimplified{
+export interface MovieSimplified {
     id: number;
     title: string;
     release_date: Date;
     poster_path: string;
-} 
+}
