@@ -18,7 +18,7 @@ npm i
 2. Renombre el archivo quitando el .template (debe quedar el nombre solamente como .env)
 3. Coloque el API Key de The Mobie DB 
 4. Asegurese de tener el emulador de Android Studio corriendo
-5. Ejecut5:
+5. Ejecute en una terminal, dentro de la ruta del proyecto clonado:
 
 ```bash
 npx react-native run-android
